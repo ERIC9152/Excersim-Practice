@@ -1,0 +1,11 @@
+#include "space_age.h"
+
+float orbit_period[]={0.2408467f, 0.61519726f, 1.0f, 1.8808158f, 11.862615f, 29.447498f, 84.016846f, 164.79132f};
+
+float age(planet_t planet, int64_t seconds){
+    if((int)planet<0)return -1.0f;
+    if((int)planet>7)return -1.0f;
+    float earth_seconds = 31557600;
+    float years = (seconds/earth_seconds)/orbit_period[(int)planet];
+    return years;
+}
